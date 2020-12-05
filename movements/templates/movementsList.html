@@ -1,9 +1,30 @@
 {% extends 'base.html' %}
 
-{% block title %} lista {% endblock %}
+{% block title %} Romanos {% endblock %}
 
 {% block content %}
-        <h1>Lista de movimientos</h1>
-        <p>Aqui va mi lista de movimientos</p>
+        <h1>Ingresos mensuales</h1>
+        <table>
+                <tr>
+                        <th>Fecha<th>   
+                        <th>Concepto<th>
+                        <th>Importe<th>    
+                </tr>
+                <tr>
+                        <td>01/12/2020<td>   
+                        <td>Sueldo Diciembre<td>
+                        <td>2000 €<td>    
+                </tr>
+                <tr>
+                        <td>04/12/2020<td>   
+                        <td>Alquler garaje<td>
+                        <td>70 €<td>    
+                </tr>
+                <tr>
+                        <td colspan="3">Total. 2070 €<td>
+                </tr>
+
+        </table>
+
 {% endblock %}
 
