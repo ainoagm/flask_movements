@@ -1,13 +1,22 @@
 from movements import app
 from flask import render_template
+import csv
 
-import random
 
 @app.route('/')
-def listaMovimientos():
-    texto = 'Hola'
-    return render_template ("movementsList.html", variable=texto)
+def listaIngresos():
+    fIngresos = open("movements/data/basededatos.csv", "r")
+    csvReader = csv.reader(fIngresos, delimiter=',', quotechar='"')
+    ingresos = list(csvReader)
+    
+    sumador = 0
+    for ingreso in ingresos:
+        sumador += float(ingreso[2])
+    
+    print(ingresos)
 
-@app.route('/dado')
-def tiradado():
-    return render_template('dado.html', tirada=random.randrange(1,7))
+    return render_template ("movementsList.html", datos=ingresos, total=sumador)
+
+@app.route('/creaalta')
+def uevoIngreso():
+    return 'Ya el miercoles si eso te enseño el formulario'
